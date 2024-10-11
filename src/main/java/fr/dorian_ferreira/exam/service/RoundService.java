@@ -59,10 +59,10 @@ public class RoundService implements
         NumberFormat nf = NumberFormat.getInstance(Locale.FRANCE);
         try {
             round.setDistance(Math.round(roundCalulator.meters(
-                    nf.parse(round.getOrigin().getLatitude()).doubleValue(),
-                    nf.parse(round.getOrigin().getLongitude()).doubleValue(),
-                    nf.parse(round.getSelected().getLatitude()).doubleValue(),
-                    nf.parse(round.getSelected().getLongitude()).doubleValue()
+                    nf.parse(round.getOrigin().getId().getLatitude()).doubleValue(),
+                    nf.parse(round.getOrigin().getId().getLongitude()).doubleValue(),
+                    nf.parse(round.getSelected().getId().getLatitude()).doubleValue(),
+                    nf.parse(round.getSelected().getId().getLongitude()).doubleValue()
                     )));
         } catch (ParseException e) {
             return null;

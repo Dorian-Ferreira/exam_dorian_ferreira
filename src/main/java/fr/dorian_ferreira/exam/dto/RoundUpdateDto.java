@@ -1,5 +1,6 @@
 package fr.dorian_ferreira.exam.dto;
 
+import fr.dorian_ferreira.exam.entity.embedded.CoordinateId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,5 +13,5 @@ import lombok.Setter;
 public class RoundUpdateDto {
     private Integer time;
 
-    private Long coordinateId;
+    private CoordinateId coordinateId;
 }

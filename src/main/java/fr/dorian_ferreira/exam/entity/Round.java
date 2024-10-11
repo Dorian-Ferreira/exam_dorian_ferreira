@@ -43,6 +43,5 @@ public class Round {
     private Coordinate selected;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
     private Coordinate origin;
 }
