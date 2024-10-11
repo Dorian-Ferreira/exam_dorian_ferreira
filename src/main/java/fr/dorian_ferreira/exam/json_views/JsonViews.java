@@ -8,4 +8,11 @@ public class JsonViews {
         JsonViewsUser.UserShow
     { }
 
+    public interface MapList extends CustomResponse,
+            JsonViewsMap.MapList
+    { }
+
+    public interface MapShow extends CustomResponse,
+            JsonViewsMap.MapShow
+    { }
 }

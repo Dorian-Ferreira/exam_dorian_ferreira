@@ -40,7 +40,7 @@ public class UserService implements
 
     private User dtoToObject(UserCreateDTO userDto, User user) {
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setBirthedAt(userDto.getBirthedAt());
         user.setUsername(userDto.getUsername());
         user.setAvatar(userDto.getAvatar());

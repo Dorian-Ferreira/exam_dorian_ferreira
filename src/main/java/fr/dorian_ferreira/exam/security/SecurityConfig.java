@@ -37,12 +37,12 @@ public class SecurityConfig {
                 auth.requestMatchers(
                         AntPathRequestMatcher.antMatcher(UrlRoute.LOGIN),
                         AntPathRequestMatcher.antMatcher(UrlRoute.REGISTER),
-                                AntPathRequestMatcher.antMatcher("/api/**")
+                        AntPathRequestMatcher.antMatcher(UrlRoute.MAP_BEST)
                     ).permitAll()
 
-//                    .requestMatchers(
-//                        AntPathRequestMatcher.antMatcher(HttpMethod.DELETE, UrlRoute.BASE_STATION + "/**")
-//                    ).authenticated()
+                    .requestMatchers(
+                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_MAP + "/**")
+                    ).authenticated()
 //
 //                    .requestMatchers(
 //                            AntPathRequestMatcher.antMatcher("/api/**")
