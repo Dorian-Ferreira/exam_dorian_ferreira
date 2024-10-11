@@ -24,6 +24,7 @@ public class UrlRoute {
     public final static String USER_ACTIVATION = BASE_USER + "/activation";
     public final static String USER_EDIT = BASE_USER + EDIT;
     public final static String USER_DELETE = BASE_USER + DELETE;
+    public static final String USER_AVATAR = BASE_USER + "/upload";
 
     public final static String MAP_BEST = BASE_MAP + "/best";
 

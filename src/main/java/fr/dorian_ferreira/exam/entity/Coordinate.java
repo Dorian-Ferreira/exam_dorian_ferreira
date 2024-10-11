@@ -15,6 +15,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Coordinate {
 
+    // La Composite est sur une branche EmbeddedId
+
     @JsonView(JsonViewsCoordinate.Id.class)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

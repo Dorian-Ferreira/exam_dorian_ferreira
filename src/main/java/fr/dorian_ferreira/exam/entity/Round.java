@@ -1,7 +1,6 @@
 package fr.dorian_ferreira.exam.entity;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import fr.dorian_ferreira.exam.json_views.JsonViewsGame;
 import fr.dorian_ferreira.exam.json_views.JsonViewsRounds;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

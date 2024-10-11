@@ -6,16 +6,17 @@ import fr.dorian_ferreira.exam.exception.EntityNotFoundException;
 import fr.dorian_ferreira.exam.repository.UserRepository;
 import fr.dorian_ferreira.exam.service.interfaces.CreateServiceInterface;
 import fr.dorian_ferreira.exam.service.interfaces.ReadOneByIdServiceInterface;
+import fr.dorian_ferreira.exam.service.utils.FileUploaderService;
+import fr.dorian_ferreira.exam.slugger.Slugger;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -26,7 +27,8 @@ public class UserService implements
 {
     private final UserRepository userRepository;
 
-    private BCryptPasswordEncoder passwordEncoder;
+    private final BCryptPasswordEncoder passwordEncoder;
+    private final Slugger slugger;
 
     @Override
     public User create(UserCreateDTO userDto) {
@@ -49,10 +51,8 @@ public class UserService implements
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userRepository.findByEmail(username);
-        optionalUser.orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        User user = optionalUser.get();
+    public UserDetails loadUserByUsername(String username) {
+        User user = findByEmail(username);
 
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
@@ -72,5 +72,19 @@ public class UserService implements
 
     public User findByPrincipal(Principal principal) {
         return findByEmail(principal.getName());
+    }
+
+    public Boolean uploadImage(MultipartFile file, Principal principal) {
+        if (principal != null) {
+        User user = findByEmail(principal.getName());
+        FileUploaderService fileUploaderService = new FileUploaderService(slugger);
+        String filename = fileUploaderService.save(file, "uploads/user");
+        if (filename != null) {
+            user.setAvatar(filename);
+            userRepository.saveAndFlush(user);
+            return true;
+        }
+    }
+        return false;
     }
 }
