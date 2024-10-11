@@ -15,10 +15,10 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class MapService implements
+public class MapPagedService implements
         CreateServiceInterface<Map, MapCreateDto>,
         ReadOneByIdServiceInterface<Map, Long>,
-        ReadAllServiceInterface<Map>,
+        ReadAllPagedServiceInterface<Map>,
         UpdateServiceInterface<Map, MapCreateDto, Long>
 {
     private final MapRepository mapRepository;

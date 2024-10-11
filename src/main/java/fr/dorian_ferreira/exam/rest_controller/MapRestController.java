@@ -6,7 +6,7 @@ import fr.dorian_ferreira.exam.dto.MapCreateDto;
 import fr.dorian_ferreira.exam.entity.Map;
 import fr.dorian_ferreira.exam.json_views.JsonViews;
 import fr.dorian_ferreira.exam.route.UrlRoute;
-import fr.dorian_ferreira.exam.service.MapService;
+import fr.dorian_ferreira.exam.service.MapPagedService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MapRestController {
 
-    private MapService mapService;
+    private MapPagedService mapService;
 
     @GetMapping(UrlRoute.BASE_MAP)
     @JsonView(JsonViews.MapList.class)

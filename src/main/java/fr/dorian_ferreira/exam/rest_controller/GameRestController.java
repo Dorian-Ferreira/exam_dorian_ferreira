@@ -6,7 +6,7 @@ import fr.dorian_ferreira.exam.dto.GameCreateDto;
 import fr.dorian_ferreira.exam.entity.Game;
 import fr.dorian_ferreira.exam.json_views.JsonViews;
 import fr.dorian_ferreira.exam.route.UrlRoute;
-import fr.dorian_ferreira.exam.service.GameService;
+import fr.dorian_ferreira.exam.service.GamePagedService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -22,7 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 public class GameRestController {
 
-    private GameService gameService;
+    private GamePagedService gameService;
 
     @GetMapping(UrlRoute.BASE_GAME)
     @JsonView(JsonViews.GameList.class)
