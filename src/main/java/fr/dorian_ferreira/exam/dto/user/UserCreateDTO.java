@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreateDTO extends UserUpdateDTO {
+public class UserCreateDTO {
 
     @Email
     @NotNull
@@ -22,5 +22,19 @@ public class UserCreateDTO extends UserUpdateDTO {
     private String email;
 
     @NotNull
-    private LocalDate birthAt;
+    @NotBlank
+    private String username;
+
+    private String avatar;
+
+    @NotNull
+    @NotBlank
+    private String password;
+
+    @NotNull
+    @NotBlank
+    private String confirmedPassword;
+
+    @NotNull
+    private LocalDate birthedAt;
 }

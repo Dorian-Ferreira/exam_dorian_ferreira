@@ -15,6 +15,7 @@ public class UrlRoute {
     public final static String REGISTER = BASE_API + "/register";
 
     public final static String BASE_USER = BASE_API + "/user";
+    public final static String USER_PROFILE = BASE_USER + "/me";
 
     public final static String USER_ACTIVATION = BASE_USER + "/activation";
     public final static String USER_EDIT = BASE_USER + EDIT;
