@@ -2,7 +2,7 @@ package fr.dorian_ferreira.exam.rest_controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import fr.dorian_ferreira.exam.custom_response.CustomPageResponse;
-import fr.dorian_ferreira.exam.dto.MapDto;
+import fr.dorian_ferreira.exam.dto.MapCreateDto;
 import fr.dorian_ferreira.exam.entity.Map;
 import fr.dorian_ferreira.exam.json_views.JsonViews;
 import fr.dorian_ferreira.exam.route.UrlRoute;
@@ -11,12 +11,10 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -61,13 +59,13 @@ public class MapRestController {
 
     @PostMapping(UrlRoute.BASE_MAP)
     @JsonView(JsonViews.MapShow.class)
-    public Map create(@Valid @RequestBody MapDto mapDto) {
-        return mapService.create(mapDto);
+    public Map create(@Valid @RequestBody MapCreateDto mapCreateDto) {
+        return mapService.create(mapCreateDto);
     }
 
     @PutMapping(UrlRoute.BASE_MAP + "/{id}")
     @JsonView(JsonViews.MapShow.class)
-    public Map update(@Valid @RequestBody MapDto mapDto, @PathVariable Long id) {
-        return mapService.update(mapDto, id);
+    public Map update(@Valid @RequestBody MapCreateDto mapCreateDto, @PathVariable Long id) {
+        return mapService.update(mapCreateDto, id);
     }
 }

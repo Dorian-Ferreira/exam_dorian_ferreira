@@ -2,11 +2,9 @@ package fr.dorian_ferreira.exam.rest_controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import fr.dorian_ferreira.exam.custom_response.CustomPageResponse;
-import fr.dorian_ferreira.exam.dto.GameDto;
-import fr.dorian_ferreira.exam.dto.MapDto;
+import fr.dorian_ferreira.exam.dto.GameCreateDto;
 import fr.dorian_ferreira.exam.entity.Game;
 import fr.dorian_ferreira.exam.json_views.JsonViews;
-import fr.dorian_ferreira.exam.repository.GameRepository;
 import fr.dorian_ferreira.exam.route.UrlRoute;
 import fr.dorian_ferreira.exam.service.GameService;
 import jakarta.validation.Valid;
@@ -68,7 +66,7 @@ public class GameRestController {
 
     @PostMapping(UrlRoute.BASE_GAME)
     @JsonView(JsonViews.GameShow.class)
-    public Game create(@Valid @RequestBody GameDto gameDto, Principal principal) {
+    public Game create(@Valid @RequestBody GameCreateDto gameDto, Principal principal) {
         return gameService.create(gameDto, principal);
     }
 }

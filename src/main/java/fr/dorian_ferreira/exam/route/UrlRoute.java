@@ -17,6 +17,8 @@ public class UrlRoute {
     public final static String BASE_USER = BASE_API + "/user";
     public final static String BASE_MAP = BASE_API + "/map";
     public final static String BASE_GAME = BASE_API + "/game";
+    public final static String BASE_ROUND = BASE_API + "/round";
+    public final static String BASE_COORDINATE = BASE_API + "/coordinate";
 
     public final static String USER_PROFILE = BASE_USER + "/me";
     public final static String USER_ACTIVATION = BASE_USER + "/activation";

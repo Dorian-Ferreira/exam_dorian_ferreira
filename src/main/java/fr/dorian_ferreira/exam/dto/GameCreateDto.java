@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GameDto {
+public class GameCreateDto {
     private Boolean hasPan;
 
     private Boolean hasZoom;

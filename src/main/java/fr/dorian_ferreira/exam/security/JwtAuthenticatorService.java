@@ -1,7 +1,7 @@
 package fr.dorian_ferreira.exam.security;
 
 import fr.dorian_ferreira.exam.custom_response.JwtResponse;
-import fr.dorian_ferreira.exam.dto.user.UserLoginDTO;
+import fr.dorian_ferreira.exam.dto.user.LoginDTO;
 import fr.dorian_ferreira.exam.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class JwtAuthenticatorService {
     private final JwtService jwtService;
     private final UserService userService;
 
-    public ResponseEntity<JwtResponse> authenticate(UserLoginDTO dto) {
+    public ResponseEntity<JwtResponse> authenticate(LoginDTO dto) {
         try {
             if(userService.findByEmail(dto.getEmail()).isEnabled()) {
                 authenticationManager.authenticate(

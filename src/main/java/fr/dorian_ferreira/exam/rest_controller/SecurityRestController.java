@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import fr.dorian_ferreira.exam.custom_response.CustomResponse;
 import fr.dorian_ferreira.exam.custom_response.JwtResponse;
 import fr.dorian_ferreira.exam.dto.user.UserCreateDTO;
-import fr.dorian_ferreira.exam.dto.user.UserLoginDTO;
+import fr.dorian_ferreira.exam.dto.user.LoginDTO;
 import fr.dorian_ferreira.exam.json_views.JsonViews;
 import fr.dorian_ferreira.exam.route.UrlRoute;
 import fr.dorian_ferreira.exam.security.JwtAuthenticatorService;
@@ -23,7 +23,7 @@ public class SecurityRestController {
     private JwtAuthenticatorService jwtAuthenticatorService;
 
     @PostMapping(UrlRoute.LOGIN)
-    public ResponseEntity<JwtResponse> login(@Valid @RequestBody UserLoginDTO dto) {
+    public ResponseEntity<JwtResponse> login(@Valid @RequestBody LoginDTO dto) {
         return jwtAuthenticatorService.authenticate(dto);
     }
 

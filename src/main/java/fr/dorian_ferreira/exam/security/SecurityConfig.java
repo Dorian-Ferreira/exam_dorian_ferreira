@@ -44,7 +44,9 @@ public class SecurityConfig {
 
                     .requestMatchers(
                         AntPathRequestMatcher.antMatcher(UrlRoute.BASE_MAP + "/**"),
-                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_GAME + "/**")
+                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_GAME + "/**"),
+                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_ROUND + "/**"),
+                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_COORDINATE + "/**")
                     ).authenticated()
 //
 //                    .requestMatchers(

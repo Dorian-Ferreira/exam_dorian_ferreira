@@ -15,10 +15,12 @@ public class JsonViewsGame {
 
     public interface GameList extends
             Id,
+
             User,
             JsonViewsUser.Username,
             JsonViewsUser.Uuid,
             JsonViewsUser.Level,
+
             CreatedAt,
             NbRounds,
             TotalPoints

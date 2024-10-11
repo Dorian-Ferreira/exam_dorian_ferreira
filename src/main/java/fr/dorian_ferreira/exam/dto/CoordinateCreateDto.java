@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MapDto {
-    private String name;
+public class CoordinateCreateDto {
+    private String latitude;
+    private String longitude;
 }
