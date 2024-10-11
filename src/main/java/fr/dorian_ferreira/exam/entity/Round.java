@@ -1,5 +1,8 @@
 package fr.dorian_ferreira.exam.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import fr.dorian_ferreira.exam.json_views.JsonViewsGame;
+import fr.dorian_ferreira.exam.json_views.JsonViewsRounds;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,16 +18,21 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Round {
 
+    @JsonView(JsonViewsRounds.Id.class)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonView(JsonViewsRounds.Points.class)
     private Integer points;
 
+    @JsonView(JsonViewsRounds.Time.class)
     private Integer time;
 
+    @JsonView(JsonViewsRounds.Distance.class)
     private Long distance;
 
+    @JsonView(JsonViewsRounds.CreatedAt.class)
     private LocalDateTime createdAt;
 
     @ManyToOne

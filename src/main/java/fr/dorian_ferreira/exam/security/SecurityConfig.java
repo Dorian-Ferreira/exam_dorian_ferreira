@@ -37,11 +37,14 @@ public class SecurityConfig {
                 auth.requestMatchers(
                         AntPathRequestMatcher.antMatcher(UrlRoute.LOGIN),
                         AntPathRequestMatcher.antMatcher(UrlRoute.REGISTER),
-                        AntPathRequestMatcher.antMatcher(UrlRoute.MAP_BEST)
+                        AntPathRequestMatcher.antMatcher(UrlRoute.MAP_BEST),
+                        AntPathRequestMatcher.antMatcher(UrlRoute.GAME_SCORES),
+                        AntPathRequestMatcher.antMatcher(UrlRoute.GAME_LAST)
                     ).permitAll()
 
                     .requestMatchers(
-                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_MAP + "/**")
+                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_MAP + "/**"),
+                        AntPathRequestMatcher.antMatcher(UrlRoute.BASE_GAME + "/**")
                     ).authenticated()
 //
 //                    .requestMatchers(

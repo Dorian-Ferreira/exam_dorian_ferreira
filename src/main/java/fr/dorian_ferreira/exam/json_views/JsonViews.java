@@ -15,4 +15,12 @@ public class JsonViews {
     public interface MapShow extends CustomResponse,
             JsonViewsMap.MapShow
     { }
+
+    public interface GameList extends CustomResponse,
+            JsonViewsGame.GameList
+    { }
+
+    public interface GameShow extends CustomResponse,
+            JsonViewsGame.GameShow
+    { }
 }

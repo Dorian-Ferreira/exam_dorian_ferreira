@@ -16,6 +16,7 @@ public class UrlRoute {
 
     public final static String BASE_USER = BASE_API + "/user";
     public final static String BASE_MAP = BASE_API + "/map";
+    public final static String BASE_GAME = BASE_API + "/game";
 
     public final static String USER_PROFILE = BASE_USER + "/me";
     public final static String USER_ACTIVATION = BASE_USER + "/activation";
@@ -23,5 +24,8 @@ public class UrlRoute {
     public final static String USER_DELETE = BASE_USER + DELETE;
 
     public final static String MAP_BEST = BASE_MAP + "/best";
+
+    public final static String GAME_SCORES = BASE_GAME + "/scores";
+    public final static String GAME_LAST = BASE_GAME + "/last";
 
 }
